@@ -10,6 +10,7 @@ import com.wesley.course.entities.User;
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
+	
 	@GetMapping
 	public ResponseEntity<User> findAll(){
 		
