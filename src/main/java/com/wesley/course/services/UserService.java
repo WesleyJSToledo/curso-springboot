@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResourceAccessException;
 
 import com.wesley.course.entities.User;
 import com.wesley.course.repositories.UserRepository;
+import com.wesley.course.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
@@ -19,7 +21,7 @@ public class UserService {
 	}
 
 	public User findById(Long id) {
-		return repository.findById(id).get();
+		return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public User insert(User user) {
