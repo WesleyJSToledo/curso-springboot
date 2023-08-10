@@ -40,8 +40,6 @@ public class Category implements Serializable {
 		this.name = name;
 	}
 
-	
-
 	public final Long getId() {
 		return id;
 	}
